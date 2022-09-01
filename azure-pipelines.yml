@@ -16,24 +16,24 @@ variables:
 
 steps:
 - task: UseDotNet@2
-  displayname: 'Use .Net SDK 6.x'
+  displayName: 'Use .Net SDK 6.x'
   inputs:
     PackageType: SDK
     version: '6.x'
 
 - task: Npm@1
-  displayname: 'Run Npm install'
+  displayName: 'Run Npm install'
   inputs:
     verbose: false
 
 - script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
-  displayname: 'Compile Saas assets'
+  displayName: 'Compile Saas assets'
 
 - task: gulp@1
-  displayname: 'run gulp tasks'
+  displayName: 'run gulp tasks'
 
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
-  displayname: 'write build info'
+  displayName: 'write build info'
   workingDirectory: Tailspin.SpaceGame.Web/wwwroot 
 
 - task: DotNetCoreCLI@2
