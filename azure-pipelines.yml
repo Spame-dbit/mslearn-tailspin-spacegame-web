@@ -8,6 +8,8 @@ trigger:
 
 pool:
   vmImage: 'Ubuntu-20.04'
+  demands:
+  - npm 
 
 variables:
   buildConfiguration: 'Release'
@@ -45,4 +47,4 @@ steps:
   inputs:
     command: 'build'
     arguments: '--no-restore --configuration Release'
-    projects: '**/*.csproj
+    projects: '**/*.csproj' #modified
